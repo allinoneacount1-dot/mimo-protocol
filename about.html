@@ -10,7 +10,6 @@
     <meta property="og:url" content="https://mimo-protocol.vercel.app/about.html">
     <meta property="og:title" content="About — mimo">
     <meta property="og:description" content="The team and vision behind mimo protocol.">
-    <meta property="og:image" content="https://mimo-protocol.vercel.app/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About — mimo">
     <meta name="twitter:description" content="The team and vision behind mimo protocol.">
@@ -51,32 +50,53 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="mesh-bg" aria-hidden="true">
+        <div class="mesh-orb mesh-orb--1"></div>
+        <div class="mesh-orb mesh-orb--2"></div>
+        <div class="mesh-orb mesh-orb--3"></div>
+    </div>
     <nav class="nav" aria-label="Main navigation">
-        <div class="nav__inner">
+        <div class="nav__pill">
             <a href="index.html" class="nav__logo" aria-label="mimo home">
                 <span class="nav__mark">◈</span>
                 <span class="nav__name">mimo</span>
             </a>
+            <div class="nav__divider"></div>
             <ul class="nav__links">
                 <li><a href="about.html" aria-current="page">About</a></li>
                 <li><a href="token.html">Token</a></li>
                 <li><a href="docs.html">Docs</a></li>
                 <li><a href="blog.html">Blog</a></li>
             </ul>
-            <button class="theme-toggle" aria-label="Toggle theme">
-                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-            </button>
-            <button class="wallet-btn" id="walletBtn" aria-label="Connect wallet">
-                <span class="wallet-btn__dot"></span>
-                <span class="wallet-btn__text">Connect wallet</span>
-            </button>
-            <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span>
-                <span></span>
+            <div class="nav__divider"></div>
+            <div class="nav__actions">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                </button>
+                <button class="wallet-btn" id="walletBtn" aria-label="Connect wallet">
+                    <span class="wallet-btn__dot"></span>
+                    <span class="wallet-btn__text">Connect</span>
+                </button>
+            </div>
+            <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span>
             </button>
         </div>
     </nav>
+    <div class="mobile-overlay" aria-hidden="true">
+        <div class="mobile-overlay__inner">
+            <ul class="mobile-overlay__links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="token.html">Token</a></li>
+                <li><a href="docs.html">Docs</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="whitepaper.html">Whitepaper</a></li>
+                <li><a href="index.html#presale">Presale</a></li>
+            </ul>
+        </div>
+    </div>
 
     <main>
         <section class="page-hero">
@@ -165,31 +185,33 @@
                     <span class="nav__mark">◈</span>
                     <span class="nav__name">mimo</span>
                 </a>
-                <p class="footer__tagline">Decentralized yield, simplified.</p>
+                <p class="footer__tagline">Yield without borders.</p>
             </div>
             <nav class="footer__col" aria-label="Protocol">
                 <h4>Protocol</h4>
-                <a href="docs.html">Documentation</a>
+                <a href="docs.html">Docs</a>
                 <a href="whitepaper.html">Whitepaper</a>
-                <a href="#">Audit reports</a>
-                <a href="https://github.com/allinoneacount1-dot/mimo-protocol" target="_blank" rel="noopener">GitHub</a>
+                <a href="token.html">Token</a>
             </nav>
             <nav class="footer__col" aria-label="Community">
                 <h4>Community</h4>
                 <a href="#">Discord</a>
                 <a href="#">Telegram</a>
                 <a href="#">Twitter</a>
-                <a href="blog.html">Blog</a>
             </nav>
-            <nav class="footer__col" aria-label="Legal">
-                <h4>Legal</h4>
-                <a href="#">Terms</a>
-                <a href="#">Privacy</a>
-                <a href="#">Disclaimer</a>
+            <nav class="footer__col" aria-label="More">
+                <h4>More</h4>
+                <a href="about.html">About</a>
+                <a href="blog.html">Blog</a>
+                <a href="https://github.com/allinoneacount1-dot/mimo-protocol" target="_blank" rel="noopener">GitHub</a>
             </nav>
         </div>
         <div class="footer__bottom">
             <span>© 2026 mimo protocol</span>
+            <div class="footer__legal">
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+            </div>
         </div>
     </footer>
 
