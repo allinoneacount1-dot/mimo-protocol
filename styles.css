@@ -64,6 +64,56 @@
     --ff-mono:    'JetBrains Mono', ui-monospace, monospace;
 }
 
+/* --- Light Mode --- */
+[data-theme="light"]{
+    --bg:        #f5f2ed;
+    --bg-raised: #edeae4;
+    --bg-card:   #ffffff;
+    --bg-card-h: #f8f6f2;
+
+    --fg:        #1a1714;
+    --fg-muted:  #5c5650;
+    --fg-faint:  #8a837b;
+
+    --brand:     #b07a50;
+    --brand-h:   #9a6840;
+    --brand-s:   rgba(176,122,80,.08);
+    --brand-s2:  rgba(176,122,80,.15);
+
+    --green:     #4a9a3a;
+    --green-s:   rgba(74,154,58,.10);
+
+    --border:    #d8d2ca;
+    --border-h:  #b8b0a6;
+}
+
+[data-theme="light"] body{
+    color-scheme: light;
+}
+
+[data-theme="light"] .nav{
+    background:rgba(245,242,237,.88);
+}
+
+[data-theme="light"] .wallet-menu{
+    box-shadow:0 16px 48px rgba(0,0,0,.12);
+}
+
+[data-theme="light"] .hero__grain{
+    opacity:.015;
+}
+
+[data-theme="light"] .orb__core{
+    box-shadow:0 0 50px rgba(176,122,80,.2);
+}
+
+[data-theme="light"] .btn--primary{
+    color:#fff;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb{background:var(--border-h)}
+[data-theme="light"] ::selection{background:var(--brand-s2);color:var(--fg)}
+
 ::selection{
     background: var(--brand-s2);
     color: var(--fg);
@@ -681,6 +731,28 @@ button{font:inherit;cursor:pointer}
     font-size:.75rem;
     color:var(--fg-faint);
 }
+
+/* ============================================================
+   Theme Toggle
+   ============================================================ */
+.theme-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:36px;height:36px;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:var(--r-btn);
+    color:var(--fg-muted);
+    cursor:pointer;
+    transition:border-color .2s var(--ease-out),color .2s var(--ease-out);
+    flex-shrink:0;
+}
+.theme-toggle:hover{border-color:var(--border-h);color:var(--fg)}
+.theme-toggle svg{width:18px;height:18px}
+.theme-toggle .icon-sun{display:none}
+[data-theme="light"] .theme-toggle .icon-moon{display:none}
+[data-theme="light"] .theme-toggle .icon-sun{display:block}
 
 /* ============================================================
    Wallet Connect
