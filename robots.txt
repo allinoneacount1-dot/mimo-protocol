@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mimo-protocol.vercel.app/sitemap.xml
