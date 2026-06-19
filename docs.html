@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation — mimo</title>
+    <meta name="description" content="Technical documentation for mimo protocol.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+</head>
+<body>
+    <nav class="nav" aria-label="Main navigation">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo" aria-label="mimo home">
+                <span class="nav__mark">◈</span>
+                <span class="nav__name">mimo</span>
+            </a>
+            <ul class="nav__links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="token.html">Token</a></li>
+                <li><a href="docs.html" aria-current="page">Docs</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <a href="index.html#presale" class="nav__cta">Get early access</a>
+            <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero">
+            <div class="page-hero__inner">
+                <span class="tag">Documentation</span>
+                <h1 class="page-hero__title">Build with mimo.</h1>
+                <p class="page-hero__body">Integrate yield optimization into your protocol, wallet, or dApp.</p>
+            </div>
+        </section>
+
+        <section class="docs-layout">
+            <aside class="docs-sidebar" aria-label="Documentation navigation">
+                <nav class="docs-nav">
+                    <h4 class="docs-nav__heading">Getting Started</h4>
+                    <a href="#overview" class="docs-nav__link docs-nav__link--active">Overview</a>
+                    <a href="#quickstart" class="docs-nav__link">Quickstart</a>
+                    <a href="#architecture" class="docs-nav__link">Architecture</a>
+
+                    <h4 class="docs-nav__heading">Guides</h4>
+                    <a href="#deposit" class="docs-nav__link">Depositing</a>
+                    <a href="#withdraw" class="docs-nav__link">Withdrawing</a>
+                    <a href="#cross-chain" class="docs-nav__link">Cross-chain</a>
+                    <a href="#yield-strategies" class="docs-nav__link">Yield Strategies</a>
+
+                    <h4 class="docs-nav__heading">Reference</h4>
+                    <a href="#contracts" class="docs-nav__link">Smart Contracts</a>
+                    <a href="#sdk" class="docs-nav__link">SDK</a>
+                    <a href="#api" class="docs-nav__link">API</a>
+                    <a href="#security" class="docs-nav__link">Security</a>
+                </nav>
+            </aside>
+
+            <article class="docs-content">
+                <section id="overview" class="docs-section">
+                    <h2>Overview</h2>
+                    <p>mimo is a yield optimization protocol that routes user deposits across multiple chains to capture the highest available yield. It uses an intent-based architecture where solvers compete to find optimal routes.</p>
+
+                    <div class="docs-callout">
+                        <strong>Key concept:</strong> Users never interact with bridges directly. The solver network handles cross-chain settlement atomically.
+                    </div>
+
+                    <h3>Supported Chains</h3>
+                    <div class="chain-grid">
+                        <div class="chain-pill">Ethereum</div>
+                        <div class="chain-pill">Solana</div>
+                        <div class="chain-pill">Arbitrum</div>
+                        <div class="chain-pill">Base</div>
+                        <div class="chain-pill">Avalanche</div>
+                        <div class="chain-pill">Polygon</div>
+                        <div class="chain-pill">Optimism</div>
+                        <div class="chain-pill">BNB Chain</div>
+                        <div class="chain-pill">Fantom</div>
+                        <div class="chain-pill">zkSync</div>
+                        <div class="chain-pill">Linea</div>
+                        <div class="chain-pill">Scroll</div>
+                    </div>
+                </section>
+
+                <section id="quickstart" class="docs-section">
+                    <h2>Quickstart</h2>
+                    <p>Get started with mimo in 3 steps:</p>
+
+                    <div class="steps">
+                        <div class="step">
+                            <span class="step__num">1</span>
+                            <div>
+                                <h4>Install the SDK</h4>
+                                <pre class="code-block"><code>npm install @mimo-protocol/sdk</code></pre>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step__num">2</span>
+                            <div>
+                                <h4>Initialize the client</h4>
+                                <pre class="code-block"><code>import { MimoClient } from '@mimo-protocol/sdk';
+
+const mimo = new MimoClient({
+  chainId: 1, // Ethereum
+  rpcUrl: process.env.RPC_URL,
+});</code></pre>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step__num">3</span>
+                            <div>
+                                <h4>Find best yield & deposit</h4>
+                                <pre class="code-block"><code>const bestYield = await mimo.findBestYield({
+  token: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', // USDC
+  amount: ethers.parseUnits('1000', 6),
+});
+
+const tx = await mimo.deposit(bestYield.vault, amount);
+await tx.wait();</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="architecture" class="docs-section">
+                    <h2>Architecture</h2>
+                    <p>mimo consists of three core layers:</p>
+
+                    <div class="arch-grid">
+                        <div class="arch-card">
+                            <span class="arch-card__label">Layer 1</span>
+                            <h4>Vault Contracts</h4>
+                            <p>User-facing contracts on each chain. Handle deposits, withdrawals, and share accounting. These are the only contracts users interact with.</p>
+                        </div>
+                        <div class="arch-card">
+                            <span class="arch-card__label">Layer 2</span>
+                            <h4>Solver Network</h4>
+                            <p>Off-chain operators who compete to find optimal yield routes. They submit bids for user intents and execute the best route atomically.</p>
+                        </div>
+                        <div class="arch-card">
+                            <span class="arch-card__label">Layer 3</span>
+                            <h4>Settlement Layer</h4>
+                            <p>Cross-chain messaging using LayerZero + custom ZK proofs. Ensures atomic settlement without relying on traditional bridges.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contracts" class="docs-section">
+                    <h2>Smart Contracts</h2>
+                    <p>All contracts are verified on Etherscan and audited by four independent firms.</p>
+
+                    <table class="docs-table">
+                        <thead>
+                            <tr>
+                                <th>Contract</th>
+                                <th>Network</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MimoVault</td>
+                                <td>Ethereum</td>
+                                <td><code class="mono">0x1234...5678</code></td>
+                            </tr>
+                            <tr>
+                                <td>MimoVault</td>
+                                <td>Arbitrum</td>
+                                <td><code class="mono">0xabcd...ef01</code></td>
+                            </tr>
+                            <tr>
+                                <td>MimoVault</td>
+                                <td>Base</td>
+                                <td><code class="mono">0x9876...5432</code></td>
+                            </tr>
+                            <tr>
+                                <td>SolverRegistry</td>
+                                <td>Ethereum</td>
+                                <td><code class="mono">0xdcba...9876</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="security" class="docs-section">
+                    <h2>Security</h2>
+                    <p>mimo has undergone four independent security audits:</p>
+                    <ul class="docs-list">
+                        <li><strong>Trail of Bits</strong> — March 2026 (0 critical, 0 high findings)</li>
+                        <li><strong>OpenZeppelin</strong> — April 2026 (0 critical, 1 medium — fixed)</li>
+                        <li><strong>Consensys Diligence</strong> — April 2026 (0 critical, 0 high findings)</li>
+                        <li><strong>Cyfrin</strong> — May 2026 (0 critical, 0 high findings)</li>
+                    </ul>
+                    <p>Bug bounty program: up to $500K for critical vulnerabilities. Submit via Immunefi.</p>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <a href="index.html" class="nav__logo" aria-label="mimo home">
+                    <span class="nav__mark">◈</span>
+                    <span class="nav__name">mimo</span>
+                </a>
+                <p class="footer__tagline">Decentralized yield, simplified.</p>
+            </div>
+            <nav class="footer__col" aria-label="Protocol">
+                <h4>Protocol</h4>
+                <a href="docs.html">Documentation</a>
+                <a href="whitepaper.html">Whitepaper</a>
+                <a href="#">Audit reports</a>
+                <a href="https://github.com/allinoneacount1-dot/mimo-protocol" target="_blank" rel="noopener">GitHub</a>
+            </nav>
+            <nav class="footer__col" aria-label="Community">
+                <h4>Community</h4>
+                <a href="#">Discord</a>
+                <a href="#">Telegram</a>
+                <a href="#">Twitter</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+            <nav class="footer__col" aria-label="Legal">
+                <h4>Legal</h4>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Disclaimer</a>
+            </nav>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2026 mimo protocol</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

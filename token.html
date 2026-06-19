@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIMO Token — mimo</title>
+    <meta name="description" content="MIMO token details, distribution, and contract information.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+</head>
+<body>
+    <nav class="nav" aria-label="Main navigation">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo" aria-label="mimo home">
+                <span class="nav__mark">◈</span>
+                <span class="nav__name">mimo</span>
+            </a>
+            <ul class="nav__links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="token.html" aria-current="page">Token</a></li>
+                <li><a href="docs.html">Docs</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <a href="index.html#presale" class="nav__cta">Get early access</a>
+            <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero">
+            <div class="page-hero__inner">
+                <span class="tag">Token</span>
+                <h1 class="page-hero__title">MIMO token.</h1>
+                <p class="page-hero__body">The native utility and governance token of the mimo protocol. 1 billion total supply, no inflation.</p>
+            </div>
+        </section>
+
+        <section class="token-stats">
+            <div class="token-stats__inner">
+                <div class="token-stat">
+                    <span class="token-stat__value">1,000,000,000</span>
+                    <span class="token-stat__label">Total supply</span>
+                </div>
+                <div class="token-stat">
+                    <span class="token-stat__value">$0.008</span>
+                    <span class="token-stat__label">Presale price</span>
+                </div>
+                <div class="token-stat">
+                    <span class="token-stat__value">$0.025</span>
+                    <span class="token-stat__label">Target listing</span>
+                </div>
+                <div class="token-stat">
+                    <span class="token-stat__value">ERC-20</span>
+                    <span class="token-stat__label">Token standard</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-block">
+            <div class="content-block__inner content-block__inner--narrow">
+                <h2>Token utility</h2>
+                <p>MIMO serves four core functions within the protocol:</p>
+
+                <h3>1. Governance</h3>
+                <p>MIMO holders vote on protocol parameters: supported chains, fee structures, solver eligibility, and treasury allocation. Voting power scales with lock duration (veToken model).</p>
+
+                <h3>2. Solver staking</h3>
+                <p>Solvers must stake MIMO to participate in the yield routing network. Stake size determines bid priority. Malicious behavior results in slashing.</p>
+
+                <h3>3. Fee sharing</h3>
+                <p>30% of all protocol fees are distributed to MIMO stakers. Remaining 70% goes to treasury, solver rewards, and liquidity incentives.</p>
+
+                <h3>4. Access control</h3>
+                <p>certain premium features (priority routing, higher deposit limits, advanced strategies) require minimum MIMO holdings.</p>
+            </div>
+        </section>
+
+        <section class="content-block content-block--alt">
+            <div class="content-block__inner">
+                <div class="tokenomics-split">
+                    <div class="tokenomics-split__left">
+                        <span class="tag">Distribution</span>
+                        <h2 class="tokenomics-split__title">1 billion MIMO, community-first.</h2>
+                    </div>
+                    <div class="tokenomics-split__right">
+                        <div class="token-row">
+                            <div class="token-row__bar" style="--w:30%;--c:var(--brand)"></div>
+                            <div class="token-row__info">
+                                <span class="token-row__name">Public sale</span>
+                                <span class="token-row__pct">30%</span>
+                            </div>
+                            <span class="token-row__amount">300M</span>
+                        </div>
+                        <div class="token-row">
+                            <div class="token-row__bar" style="--w:25%;--c:var(--brand-h)"></div>
+                            <div class="token-row__info">
+                                <span class="token-row__name">Ecosystem fund</span>
+                                <span class="token-row__pct">25%</span>
+                            </div>
+                            <span class="token-row__amount">250M</span>
+                        </div>
+                        <div class="token-row">
+                            <div class="token-row__bar" style="--w:15%;--c:var(--green)"></div>
+                            <div class="token-row__info">
+                                <span class="token-row__name">Liquidity</span>
+                                <span class="token-row__pct">15%</span>
+                            </div>
+                            <span class="token-row__amount">150M</span>
+                        </div>
+                        <div class="token-row">
+                            <div class="token-row__bar" style="--w:15%;--c:var(--fg-muted)"></div>
+                            <div class="token-row__info">
+                                <span class="token-row__name">Team & advisors</span>
+                                <span class="token-row__pct">15%</span>
+                            </div>
+                            <span class="token-row__amount">150M</span>
+                        </div>
+                        <div class="token-row">
+                            <div class="token-row__bar" style="--w:10%;--c:var(--fg-faint)"></div>
+                            <div class="token-row__info">
+                                <span class="token-row__name">Private sale</span>
+                                <span class="token-row__pct">10%</span>
+                            </div>
+                            <span class="token-row__amount">100M</span>
+                        </div>
+                        <div class="token-row">
+                            <div class="token-row__bar" style="--w:5%;--c:var(--border-h)"></div>
+                            <div class="token-row__info">
+                                <span class="token-row__name">Staking rewards</span>
+                                <span class="token-row__pct">5%</span>
+                            </div>
+                            <span class="token-row__amount">50M</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-block">
+            <div class="content-block__inner content-block__inner--narrow">
+                <h2>Vesting schedule</h2>
+                <table class="docs-table">
+                    <thead>
+                        <tr>
+                            <th>Allocation</th>
+                            <th>Cliff</th>
+                            <th>Vesting</th>
+                            <th>TGE Unlock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Public sale</td>
+                            <td>30 days</td>
+                            <td>6 months linear</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>Private sale</td>
+                            <td>60 days</td>
+                            <td>12 months linear</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td>Team & advisors</td>
+                            <td>12 months</td>
+                            <td>48 months linear</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>Ecosystem fund</td>
+                            <td>None</td>
+                            <td>36 months linear</td>
+                            <td>5%</td>
+                        </tr>
+                        <tr>
+                            <td>Liquidity</td>
+                            <td>None</td>
+                            <td>Unlocked at TGE</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>Staking rewards</td>
+                            <td>None</td>
+                            <td>Emission over 48 months</td>
+                            <td>0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Contract address</h2>
+                <div class="address-card">
+                    <span class="address-card__chain">Ethereum Mainnet</span>
+                    <code class="address-card__addr">0x1234567890abcdef1234567890abcdef12345678</code>
+                </div>
+                <p style="margin-top:1rem;color:var(--fg-muted);font-size:var(--fs-small)">Verified on Etherscan. Audit reports available on the docs portal.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <a href="index.html" class="nav__logo" aria-label="mimo home">
+                    <span class="nav__mark">◈</span>
+                    <span class="nav__name">mimo</span>
+                </a>
+                <p class="footer__tagline">Decentralized yield, simplified.</p>
+            </div>
+            <nav class="footer__col" aria-label="Protocol">
+                <h4>Protocol</h4>
+                <a href="docs.html">Documentation</a>
+                <a href="whitepaper.html">Whitepaper</a>
+                <a href="#">Audit reports</a>
+                <a href="https://github.com/allinoneacount1-dot/mimo-protocol" target="_blank" rel="noopener">GitHub</a>
+            </nav>
+            <nav class="footer__col" aria-label="Community">
+                <h4>Community</h4>
+                <a href="#">Discord</a>
+                <a href="#">Telegram</a>
+                <a href="#">Twitter</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+            <nav class="footer__col" aria-label="Legal">
+                <h4>Legal</h4>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Disclaimer</a>
+            </nav>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2026 mimo protocol</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

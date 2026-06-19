@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — mimo</title>
+    <meta name="description" content="Updates, deep dives, and announcements from the mimo team.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+</head>
+<body>
+    <nav class="nav" aria-label="Main navigation">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo" aria-label="mimo home">
+                <span class="nav__mark">◈</span>
+                <span class="nav__name">mimo</span>
+            </a>
+            <ul class="nav__links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="token.html">Token</a></li>
+                <li><a href="docs.html">Docs</a></li>
+                <li><a href="blog.html" aria-current="page">Blog</a></li>
+            </ul>
+            <a href="index.html#presale" class="nav__cta">Get early access</a>
+            <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero">
+            <div class="page-hero__inner">
+                <span class="tag">Blog</span>
+                <h1 class="page-hero__title">Updates & deep dives.</h1>
+                <p class="page-hero__body">Technical write-ups, product updates, and our thinking on the future of cross-chain yield.</p>
+            </div>
+        </section>
+
+        <section class="blog-list">
+            <div class="blog-list__inner">
+                <article class="blog-card blog-card--featured">
+                    <div class="blog-card__meta">
+                        <time class="blog-card__date">June 12, 2026</time>
+                        <span class="blog-card__tag">Announcement</span>
+                    </div>
+                    <h2 class="blog-card__title">mimo Presale Stage 2: Now Live</h2>
+                    <p class="blog-card__excerpt">Stage 2 of the MIMO token presale is live. 300M tokens available at $0.008. Early participants get 3.1× potential ROI before CEX listing at $0.025.</p>
+                    <a href="#" class="blog-card__link">Read more →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card__meta">
+                        <time class="blog-card__date">May 28, 2026</time>
+                        <span class="blog-card__tag">Technical</span>
+                    </div>
+                    <h2 class="blog-card__title">How Intent-Based Yield Routing Works</h2>
+                    <p class="blog-card__excerpt">A deep dive into our solver network architecture. How solvers compete to find optimal yield routes, and why this beats traditional bridge-based approaches.</p>
+                    <a href="#" class="blog-card__link">Read more →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card__meta">
+                        <time class="blog-card__date">May 15, 2026</time>
+                        <span class="blog-card__tag">Security</span>
+                    </div>
+                    <h2 class="blog-card__title">Post-Audit: What Trail of Bits Found</h2>
+                    <p class="blog-card__excerpt">Our first security audit is complete. Here's what Trail of Bits tested, what they found, and how we fixed it. Spoiler: zero critical or high findings.</p>
+                    <a href="#" class="blog-card__link">Read more →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card__meta">
+                        <time class="blog-card__date">April 30, 2026</time>
+                        <span class="blog-card__tag">Research</span>
+                    </div>
+                    <h2 class="blog-card__title">The Bridge Problem: $2.8B Lost in 2023</h2>
+                    <p class="blog-card__excerpt">Bridges are the #1 attack vector in DeFi. We analyze the major bridge exploits and explain why mimo's intent-based architecture eliminates this risk entirely.</p>
+                    <a href="#" class="blog-card__link">Read more →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card__meta">
+                        <time class="blog-card__date">April 10, 2026</time>
+                        <span class="blog-card__tag">Announcement</span>
+                    </div>
+                    <h2 class="blog-card__title">Seed Round: $4.2M Led by Paradigm</h2>
+                    <p class="blog-card__excerpt">mimo has raised $4.2M in seed funding from Paradigm, Polychain, Dragonfly, and Robot Ventures. Here's what we're building with it.</p>
+                    <a href="#" class="blog-card__link">Read more →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card__meta">
+                        <time class="blog-card__date">March 20, 2026</time>
+                        <span class="blog-card__tag">Technical</span>
+                    </div>
+                    <h2 class="blog-card__title">Why We Chose ZK-Proofs Over Optimistic Bridges</h2>
+                    <p class="blog-card__excerpt">Optimistic bridges have a 7-day withdrawal delay. ZK-proofs settle in seconds. Here's the technical trade-offs and why we went with ZK for mimo's settlement layer.</p>
+                    <a href="#" class="blog-card__link">Read more →</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <a href="index.html" class="nav__logo" aria-label="mimo home">
+                    <span class="nav__mark">◈</span>
+                    <span class="nav__name">mimo</span>
+                </a>
+                <p class="footer__tagline">Decentralized yield, simplified.</p>
+            </div>
+            <nav class="footer__col" aria-label="Protocol">
+                <h4>Protocol</h4>
+                <a href="docs.html">Documentation</a>
+                <a href="whitepaper.html">Whitepaper</a>
+                <a href="#">Audit reports</a>
+                <a href="https://github.com/allinoneacount1-dot/mimo-protocol" target="_blank" rel="noopener">GitHub</a>
+            </nav>
+            <nav class="footer__col" aria-label="Community">
+                <h4>Community</h4>
+                <a href="#">Discord</a>
+                <a href="#">Telegram</a>
+                <a href="#">Twitter</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+            <nav class="footer__col" aria-label="Legal">
+                <h4>Legal</h4>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Disclaimer</a>
+            </nav>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2026 mimo protocol</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

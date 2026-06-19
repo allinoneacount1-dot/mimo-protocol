@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitepaper — mimo</title>
+    <meta name="description" content="Technical whitepaper for the mimo decentralized yield protocol.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+</head>
+<body>
+    <nav class="nav" aria-label="Main navigation">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo" aria-label="mimo home">
+                <span class="nav__mark">◈</span>
+                <span class="nav__name">mimo</span>
+            </a>
+            <ul class="nav__links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="token.html">Token</a></li>
+                <li><a href="docs.html">Docs</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <a href="index.html#presale" class="nav__cta">Get early access</a>
+            <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero">
+            <div class="page-hero__inner">
+                <span class="tag">Whitepaper</span>
+                <h1 class="page-hero__title">mimo: Intent-Based Cross-Chain Yield Optimization</h1>
+                <p class="page-hero__body">Version 1.0 — June 2026</p>
+            </div>
+        </section>
+
+        <section class="wp-layout">
+            <aside class="wp-sidebar" aria-label="Whitepaper navigation">
+                <nav class="docs-nav">
+                    <a href="#abstract" class="docs-nav__link docs-nav__link--active">Abstract</a>
+                    <a href="#problem" class="docs-nav__link">Problem Statement</a>
+                    <a href="#solution" class="docs-nav__link">Proposed Solution</a>
+                    <a href="#architecture" class="docs-nav__link">Architecture</a>
+                    <a href="#solver" class="docs-nav__link">Solver Network</a>
+                    <a href="#settlement" class="docs-nav__link">Settlement Layer</a>
+                    <a href="#governance" class="docs-nav__link">Governance</a>
+                    <a href="#tokenomics" class="docs-nav__link">Tokenomics</a>
+                    <a href="#security" class="docs-nav__link">Security Model</a>
+                    <a href="#roadmap" class="docs-nav__link">Roadmap</a>
+                    <a href="#references" class="docs-nav__link">References</a>
+                </nav>
+                <div class="wp-download">
+                    <a href="#" class="btn btn--outline btn--full">Download PDF</a>
+                </div>
+            </aside>
+
+            <article class="wp-content">
+                <section id="abstract" class="wp-section">
+                    <h2>Abstract</h2>
+                    <p>We present mimo, a decentralized yield optimization protocol that enables users to earn optimized yield across multiple blockchain networks without interacting with traditional cross-chain bridges. mimo uses an intent-based architecture where a competitive solver network routes capital to the highest-yielding opportunities atomically, eliminating bridge risk while maximizing returns.</p>
+                    <p>The protocol supports 12 EVM and non-EVM chains, achieves sub-3-second settlement, and has been audited by four independent security firms. The MIMO token governs protocol parameters and secures the solver network through staking and slashing mechanisms.</p>
+                </section>
+
+                <section id="problem" class="wp-section">
+                    <h2>1. Problem Statement</h2>
+                    <h3>1.1 Yield Fragmentation</h3>
+                    <p>DeFi yield is fragmented across dozens of chains. A user seeking optimal yield must manually bridge assets, evaluate protocols on each chain, supply liquidity, and continuously rebalance. This creates significant friction, leaving most capital idle on Ethereum earning sub-optimal returns.</p>
+
+                    <h3>1.2 Bridge Risk</h3>
+                    <p>Cross-chain bridges are the #1 security vulnerability in DeFi. In 2023 alone, $2.8 billion was lost through bridge exploits including Ronin ($625M), Wormhole ($320M), and Nomad ($190M). Users face an impossible choice: accept bridge risk for higher yield, or stay on a single chain for safety.</p>
+
+                    <h3>1.3 Capital Inefficiency</h3>
+                    <p>Without cross-chain yield optimization, capital is allocated sub-optimally. DeFi protocols on smaller chains offer higher yields to attract liquidity, but most capital never reaches them due to bridging complexity and risk. This creates market inefficiency that benefits neither users nor protocols.</p>
+                </section>
+
+                <section id="solution" class="wp-section">
+                    <h2>2. Proposed Solution</h2>
+                    <h3>2.1 Intent-Based Architecture</h3>
+                    <p>mimo replaces direct bridge interactions with an intent-based system. Users express a high-level intent ("earn yield on my USDC") and a network of competing solvers finds the optimal execution path. This abstraction eliminates the need for users to understand bridge mechanics, protocol specifics, or chain differences.</p>
+
+                    <h3>2.2 Atomic Settlement</h3>
+                    <p>Unlike traditional bridges that use lock-and-mint or burn-and-release patterns (which require trust assumptions and introduce delay), mimo's settlement layer uses zero-knowledge proofs to verify cross-chain state transitions atomically. The user's capital moves from source chain to yield position in a single transaction.</p>
+
+                    <h3>2.3 Competitive Solver Market</h3>
+                    <p>Solvers are economic actors who compete to fulfill user intents. They stake MIMO tokens as collateral, submit bids for user intents, and execute the best route. Market competition drives down costs and improves execution quality. Malicious behavior is punished through slashing.</p>
+                </section>
+
+                <section id="architecture" class="wp-section">
+                    <h2>3. Architecture</h2>
+                    <h3>3.1 Protocol Layers</h3>
+                    <p>mimo operates across three architectural layers:</p>
+                    <p><strong>Vault Layer:</strong> User-facing smart contracts deployed on each supported chain. Vaults accept deposits, issue shares, and handle withdrawals. They communicate user intents to the solver network via an off-chain message bus.</p>
+                    <p><strong>Solver Layer:</strong> A network of off-chain operators who monitor vault intents and submit competitive bids. The solver with the best bid (highest net yield for the user) is selected to execute.</p>
+                    <p><strong>Settlement Layer:</strong> A cross-chain messaging and verification system built on LayerZero V2 with custom ZK-proof verification. This layer ensures atomic settlement without relying on traditional bridge infrastructure.</p>
+                </section>
+
+                <section id="solver" class="wp-section">
+                    <h2>4. Solver Network</h2>
+                    <p>Solvers are the economic engine of mimo. They perform the work of finding and executing optimal yield strategies. To become a solver, an operator must:</p>
+                    <p>1. Stake a minimum of 100,000 MIMO tokens<br>
+                    2. Pass a KYC verification process<br>
+                    3. Run the mimo solver software<br>
+                    4. Maintain uptime SLA of 99.5%</p>
+                    <p>Solvers earn a commission on each successful route (currently 0.3% of deposited amount). The competitive market ensures commissions remain low while solvers are adequately incentivized.</p>
+                </section>
+
+                <section id="settlement" class="wp-section">
+                    <h2>5. Settlement Layer</h2>
+                    <p>Our settlement system uses ZK-proofs to verify cross-chain state transitions. When a solver moves capital from Chain A to Chain B, a ZK-proof is generated证明 the state transition is valid. This proof is verified on-chain at the destination, eliminating the need to trust intermediate bridge operators.</p>
+                    <p>Settlement time: 2.1 seconds average (vs. 7 days for optimistic bridges). Gas cost: equivalent to a single Ethereum transaction regardless of source chain.</p>
+                </section>
+
+                <section id="governance" class="wp-section">
+                    <h2>6. Governance</h2>
+                    <p>mimo governance uses a vote-escrowed model (veMIMO). MIMO holders lock tokens for 1-48 months to receive voting power. Longer locks receive higher voting power and a share of protocol fees.</p>
+                    <p>Governance controls: supported chains, fee parameters, solver minimums, treasury allocation, and protocol upgrades. Time-locked timelock contracts ensure changes are delayed 48 hours for community review.</p>
+                </section>
+
+                <section id="tokenomics" class="wp-section">
+                    <h2>7. Tokenomics</h2>
+                    <p>Total supply: 1,000,000,000 MIMO (fixed, no inflation).</p>
+                    <p>Public sale: 30% (300M) · Ecosystem: 25% (250M) · Liquidity: 15% (150M) · Team: 15% (150M) · Private sale: 10% (100M) · Staking rewards: 5% (50M).</p>
+                    <p>Token utility: governance, solver staking, fee sharing, premium access.</p>
+                </section>
+
+                <section id="security" class="wp-section">
+                    <h2>8. Security Model</h2>
+                    <p>mimo's security rests on four pillars:</p>
+                    <p><strong>Smart contract security:</strong> Four independent audits (Trail of Bits, OpenZeppelin, Consensys Diligence, Cyfrin). Formal verification of core vault contracts. Upgradability via time-locked proxy pattern.</p>
+                    <p><strong>Solver security:</strong> Economic security through MIMO staking. Slashing conditions for malicious behavior. Reputation system tracking solver performance.</p>
+                    <p><strong>Settlement security:</strong> ZK-proof verification eliminates bridge trust assumptions. No reliance on multisig or optimistic assumptions.</p>
+                    <p><strong>Operational security:</strong> Multi-sig governance. 48-hour timelock on all upgrades. Incident response plan with 72-hour disclosure commitment.</p>
+                </section>
+
+                <section id="roadmap" class="wp-section">
+                    <h2>9. Roadmap</h2>
+                    <p><strong>Q1 2026:</strong> Protocol design, seed funding, security audits.</p>
+                    <p><strong>Q2 2026:</strong> Token presale, DEX listing, community growth.</p>
+                    <p><strong>Q3 2026:</strong> Mainnet launch, cross-chain bridge live, mobile app beta.</p>
+                    <p><strong>Q4 2026:</strong> DAO governance, institutional partnerships, CEX listings.</p>
+                </section>
+
+                <section id="references" class="wp-section">
+                    <h2>10. References</h2>
+                    <p class="wp-ref">[1] Buterin, V. (2021). "An Incomplete Guide to Rollups." vitalik.ca.</p>
+                    <p class="wp-ref">[2] Teutsch, J. & Reitwießner, C. (2019). "A Scalable Verification Solution for Blockchains." arXiv:1908.04756.</p>
+                    <p class="wp-ref">[3] LayerZero Labs. (2024). "LayerZero V2 Technical Specification." docs.layerzero.network.</p>
+                    <p class="wp-ref">[4] Chainalysis. (2024). "The 2023 Crypto Crime Report: Bridge Exploits." chainalysis.com.</p>
+                    <p class="wp-ref">[5] Daian, P. et al. (2020). "Flash Boys 2.0: Frontrunning in Decentralized Exchanges." IEEE S&P.</p>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <a href="index.html" class="nav__logo" aria-label="mimo home">
+                    <span class="nav__mark">◈</span>
+                    <span class="nav__name">mimo</span>
+                </a>
+                <p class="footer__tagline">Decentralized yield, simplified.</p>
+            </div>
+            <nav class="footer__col" aria-label="Protocol">
+                <h4>Protocol</h4>
+                <a href="docs.html">Documentation</a>
+                <a href="whitepaper.html">Whitepaper</a>
+                <a href="#">Audit reports</a>
+                <a href="https://github.com/allinoneacount1-dot/mimo-protocol" target="_blank" rel="noopener">GitHub</a>
+            </nav>
+            <nav class="footer__col" aria-label="Community">
+                <h4>Community</h4>
+                <a href="#">Discord</a>
+                <a href="#">Telegram</a>
+                <a href="#">Twitter</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+            <nav class="footer__col" aria-label="Legal">
+                <h4>Legal</h4>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Disclaimer</a>
+            </nav>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2026 mimo protocol</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
