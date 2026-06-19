@@ -1,405 +1,399 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mimo — Decentralized Yield Protocol</title>
-    <meta name="description" content="mimo is a decentralized yield optimization protocol. Earn native yield across 12 chains without bridges.">
+    <title>mimo — Yield Without Borders</title>
+    <meta name="description" content="mimo routes capital across 12 chains to capture the highest yield — automatically, privately, without bridges.">
     <link rel="canonical" href="https://mimo-protocol.vercel.app/">
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mimo-protocol.vercel.app/">
-    <meta property="og:title" content="mimo — Decentralized Yield Protocol">
-    <meta property="og:description" content="Earn native yield across 12 chains without bridges. Intent-based architecture, zero bridge risk.">
+    <meta property="og:title" content="mimo — Yield Without Borders">
+    <meta property="og:description" content="Earn native yield across 12 chains without bridges.">
     <meta property="og:image" content="https://mimo-protocol.vercel.app/og-image.png">
-    <meta property="og:site_name" content="mimo">
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://mimo-protocol.vercel.app/">
-    <meta name="twitter:title" content="mimo — Decentralized Yield Protocol">
-    <meta name="twitter:description" content="Earn native yield across 12 chains without bridges.">
-    <meta name="twitter:image" content="https://mimo-protocol.vercel.app/og-image.png">
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "mimo",
-        "url": "https://mimo-protocol.vercel.app",
-        "description": "Decentralized yield optimization protocol. Earn native yield across 12 chains without bridges.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://mimo-protocol.vercel.app/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "mimo protocol",
-        "url": "https://mimo-protocol.vercel.app",
-        "logo": "https://mimo-protocol.vercel.app/logo.png",
-        "sameAs": [
-            "https://twitter.com/mimo_protocol",
-            "https://discord.gg/mimo",
-            "https://t.me/mimo_protocol"
-        ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "When are MIMO tokens distributed?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Within 2 weeks after presale ends. Non-transferable for 30 days (cliff), then linear vesting over 6 months."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Which blockchain is MIMO on?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "ERC-20 on Ethereum with native bridging to Solana, Avalanche, and Polygon. More chains added in Phase 3."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is the contract audited?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes — four independent audits. Trail of Bits, OpenZeppelin, Consensys Diligence, and Cyfrin. Reports are on our docs portal."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What is the vesting schedule?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Presale: 30-day cliff + 6-month linear. Team: 12-month cliff + 4-year linear. Full details in the whitepaper."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How do I participate?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Connect MetaMask, WalletConnect, or Coinbase Wallet. Enter an amount and confirm. No KYC under $10K."
-                }
-            }
-        ]
-    }
-    </script>
+    <meta name="theme-color" content="#050505">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#c8956c">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="mimo">
-    <link rel="apple-touch-icon" href="icon-192.svg">
     <script src="theme.js"></script>
     <script defer src="analytics.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
+
+    <!-- Grain Overlay -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Mesh Gradient Background -->
+    <div class="mesh-bg" aria-hidden="true">
+        <div class="mesh-orb mesh-orb--1"></div>
+        <div class="mesh-orb mesh-orb--2"></div>
+        <div class="mesh-orb mesh-orb--3"></div>
+    </div>
+
+    <!-- Navigation — Floating Island -->
     <nav class="nav" aria-label="Main navigation">
-        <div class="nav__inner">
-            <a href="#" class="nav__logo" aria-label="mimo home">
+        <div class="nav__pill">
+            <a href="index.html" class="nav__logo" aria-label="mimo home">
                 <span class="nav__mark">◈</span>
                 <span class="nav__name">mimo</span>
             </a>
+            <div class="nav__divider"></div>
             <ul class="nav__links">
+                <li><a href="#manifesto">Manifesto</a></li>
+                <li><a href="#stack">Stack</a></li>
+                <li><a href="#numbers">Numbers</a></li>
+                <li><a href="#presale">Presale</a></li>
+            </ul>
+            <div class="nav__divider"></div>
+            <div class="nav__actions">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                </button>
+                <button class="wallet-btn" id="walletBtn" aria-label="Connect wallet">
+                    <span class="wallet-btn__dot"></span>
+                    <span class="wallet-btn__text">Connect</span>
+                </button>
+            </div>
+            <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" aria-hidden="true">
+        <div class="mobile-overlay__inner">
+            <ul class="mobile-overlay__links">
+                <li><a href="#manifesto">Manifesto</a></li>
+                <li><a href="#stack">Stack</a></li>
+                <li><a href="#numbers">Numbers</a></li>
+                <li><a href="#presale">Presale</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="token.html">Token</a></li>
                 <li><a href="docs.html">Docs</a></li>
                 <li><a href="blog.html">Blog</a></li>
             </ul>
-            <button class="theme-toggle" aria-label="Toggle theme">
-                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-            </button>
-            <button class="wallet-btn" id="walletBtn" aria-label="Connect wallet">
-                <span class="wallet-btn__dot"></span>
-                <span class="wallet-btn__text">Connect wallet</span>
-            </button>
-            <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-            </button>
         </div>
-    </nav>
+    </div>
 
     <main>
+        <!-- ============================================================
+             HERO — Massive Typography + Floating Orb
+             ============================================================ -->
         <section class="hero" aria-label="Introduction">
-            <div class="hero__grain"></div>
             <div class="hero__content">
-                <p class="hero__eyebrow">Token launch — live now</p>
-                <h1 class="hero__title">Yield that<br>works while<br>you don't.</h1>
-                <p class="hero__body">mimo routes your capital across 12 chains to capture the highest available yield — automatically, privately, without bridges.</p>
-                <div class="hero__actions">
-                    <a href="#presale" class="btn btn--primary">Join the presale</a>
-                    <a href="#what" class="btn btn--outline">Read the docs</a>
+                <div class="hero__badge">
+                    <span class="hero__badge-dot"></span>
+                    <span>Presale live — Stage 2 of 5</span>
                 </div>
-                <dl class="hero__metrics">
-                    <div class="metric">
-                        <dt class="metric__value" data-count="2400000" data-prefix="$">$0</dt>
-                        <dd class="metric__label">raised in presale</dd>
+                <h1 class="hero__title">
+                    <span class="hero__line hero__line--1">Yield</span>
+                    <span class="hero__line hero__line--2">Without</span>
+                    <span class="hero__line hero__line--3">
+                        <span class="hero__line-accent">Borders</span>
+                        <svg class="hero__arrow" width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M8 40L40 8M40 8H16M40 8V32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                </h1>
+                <p class="hero__sub">mimo routes your capital across 12 chains to capture the highest yield — automatically, privately, without bridges.</p>
+                <div class="hero__ctas">
+                    <a href="#presale" class="cta-primary">
+                        <span class="cta-primary__text">Join presale</span>
+                        <span class="cta-primary__icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </span>
+                    </a>
+                    <a href="whitepaper.html" class="cta-ghost">Read whitepaper</a>
+                </div>
+            </div>
+            <div class="hero__visual" aria-hidden="true">
+                <div class="hero__orb">
+                    <div class="hero__orb-ring hero__orb-ring--1"></div>
+                    <div class="hero__orb-ring hero__orb-ring--2"></div>
+                    <div class="hero__orb-ring hero__orb-ring--3"></div>
+                    <div class="hero__orb-core">M</div>
+                </div>
+            </div>
+            <div class="hero__scroll" aria-hidden="true">
+                <div class="hero__scroll-line"></div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             MANIFESTO — Editorial Split
+             ============================================================ -->
+        <section class="manifesto" id="manifesto" aria-label="Manifesto">
+            <div class="manifesto__inner">
+                <div class="manifesto__left">
+                    <span class="eyebrow">01 — Manifesto</span>
+                    <h2 class="manifesto__heading">DeFi yield is broken.</h2>
+                </div>
+                <div class="manifesto__right">
+                    <p class="manifesto__lead">Capital sits idle on Ethereum earning 2% while 18% opportunities exist on Arbitrum. The reason? Bridges are the #1 hack vector in crypto — $2.8B stolen in 2023.</p>
+                    <p class="manifesto__body">Users shouldn't choose between yield and security. mimo eliminates this tradeoff with intent-based architecture that routes capital atomically, without ever touching a traditional bridge.</p>
+                    <div class="manifesto__stats">
+                        <div class="manifesto__stat">
+                            <span class="manifesto__stat-val" data-count="2800" data-prefix="$" data-suffix="M">$0M</span>
+                            <span class="manifesto__stat-label">Lost to bridges in 2023</span>
+                        </div>
+                        <div class="manifesto__stat">
+                            <span class="manifesto__stat-val" data-count="12">0</span>
+                            <span class="manifesto__stat-label">Chains supported</span>
+                        </div>
+                        <div class="manifesto__stat">
+                            <span class="manifesto__stat-val">0</span>
+                            <span class="manifesto__stat-label">Bridge interactions</span>
+                        </div>
                     </div>
-                    <div class="metric">
-                        <dt class="metric__value" data-count="12500">0</dt>
-                        <dd class="metric__label">early participants</dd>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             STACK — Double-Bezel Bento Grid
+             ============================================================ -->
+        <section class="stack" id="stack" aria-label="Technology stack">
+            <div class="stack__header">
+                <span class="eyebrow">02 — Stack</span>
+                <h2 class="stack__title">Built different.</h2>
+            </div>
+            <div class="stack__grid">
+                <article class="bento bento--hero">
+                    <div class="bento__shell">
+                        <div class="bento__core">
+                            <span class="bento__label">Architecture</span>
+                            <h3 class="bento__heading">Intent-based yield routing</h3>
+                            <p class="bento__text">Users express intent. Solvers compete to find optimal routes. Capital moves atomically across chains in a single transaction.</p>
+                            <div class="bento__visual">
+                                <div class="bento__chain">
+                                    <span class="bento__chain-dot"></span>Ethereum
+                                </div>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="bento__chain-arrow"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                <div class="bento__chain bento__chain--active">
+                                    <span class="bento__chain-dot bento__chain-dot--active"></span>Arbitrum
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="metric">
-                        <dt class="metric__value">0.008</dt>
-                        <dd class="metric__label">current price USD</dd>
+                </article>
+                <article class="bento">
+                    <div class="bento__shell">
+                        <div class="bento__core">
+                            <span class="bento__stat">2.1s</span>
+                            <h3 class="bento__heading">Settlement</h3>
+                            <p class="bento__text">ZK-proof verification. Not 7-day optimistic delay.</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="bento">
+                    <div class="bento__shell">
+                        <div class="bento__core">
+                            <span class="bento__stat">4</span>
+                            <h3 class="bento__heading">Audits</h3>
+                            <p class="bento__text">Trail of Bits, OpenZeppelin, Consensys, Cyfrin.</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="bento bento--wide">
+                    <div class="bento__shell">
+                        <div class="bento__core">
+                            <span class="bento__stat">18.4%</span>
+                            <h3 class="bento__heading">Average APY</h3>
+                            <p class="bento__text">Blended yield across lending, LP provision, and restaking. Auto-compounded.</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="bento">
+                    <div class="bento__shell">
+                        <div class="bento__core">
+                            <span class="bento__stat">$0</span>
+                            <h3 class="bento__heading">Bridge fees</h3>
+                            <p class="bento__text">Intent settlement, not bridges.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             NUMBERS — Counter Section
+             ============================================================ -->
+        <section class="numbers" id="numbers" aria-label="Key metrics">
+            <div class="numbers__inner">
+                <span class="eyebrow">03 — Numbers</span>
+                <div class="numbers__grid">
+                    <div class="numbers__item">
+                        <span class="numbers__val" data-count="2400000" data-prefix="$">$0</span>
+                        <span class="numbers__label">Raised in presale</span>
+                    </div>
+                    <div class="numbers__item">
+                        <span class="numbers__val" data-count="12500">0</span>
+                        <span class="numbers__label">Early participants</span>
+                    </div>
+                    <div class="numbers__item">
+                        <span class="numbers__val">$0.008</span>
+                        <span class="numbers__label">Current price</span>
+                    </div>
+                    <div class="numbers__item">
+                        <span class="numbers__val">$0.025</span>
+                        <span class="numbers__label">Target listing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             PRESALE — CTA Section
+             ============================================================ -->
+        <section class="presale" id="presale" aria-label="Token presale">
+            <div class="presale__inner">
+                <div class="presale__card">
+                    <div class="presale__card-shell">
+                        <div class="presale__card-core">
+                            <div class="presale__head">
+                                <span class="presale__live">
+                                    <span class="presale__live-dot"></span>
+                                    Live now
+                                </span>
+                                <h2 class="presale__title">Get <span class="gold">MIMO</span> tokens early.</h2>
+                                <p class="presale__sub">Stage 2 of 5. Best price before CEX listing.</p>
+                            </div>
+                            <div class="presale__grid">
+                                <div class="presale__info">
+                                    <div class="presale__row">
+                                        <span class="presale__label">Current price</span>
+                                        <span class="presale__value">$0.008</span>
+                                    </div>
+                                    <div class="presale__row">
+                                        <span class="presale__label">Listing price</span>
+                                        <span class="presale__value">$0.025</span>
+                                    </div>
+                                    <div class="presale__row">
+                                        <span class="presale__label">Potential ROI</span>
+                                        <span class="presale__value presale__value--green">3.1×</span>
+                                    </div>
+                                    <div class="presale__progress">
+                                        <div class="presale__progress-head">
+                                            <span>Stage 2</span>
+                                            <span class="presale__progress-pct">68%</span>
+                                        </div>
+                                        <div class="presale__bar">
+                                            <div class="presale__bar-fill" style="width:68%"></div>
+                                        </div>
+                                        <div class="presale__progress-foot">
+                                            <span>$1,632,000</span>
+                                            <span>Goal $2,400,000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form class="presale__form" aria-label="Investment calculator">
+                                    <div class="field">
+                                        <label for="invest" class="field__label">You invest (USD)</label>
+                                        <div class="field__input">
+                                            <span class="field__prefix">$</span>
+                                            <input type="number" id="invest" min="50" value="100" step="10">
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label for="receive" class="field__label">You receive (MIMO)</label>
+                                        <div class="field__input">
+                                            <span class="field__prefix">◈</span>
+                                            <input type="text" id="receive" readonly value="12,500">
+                                        </div>
+                                    </div>
+                                    <button type="button" class="cta-primary cta-primary--full" id="investBtn">
+                                        <span class="cta-primary__text">Connect wallet to invest</span>
+                                        <span class="cta-primary__icon">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                        </span>
+                                    </button>
+                                    <p class="presale__note">Min $50 · Vesting 6 months</p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             FAQ
+             ============================================================ -->
+        <section class="faq" id="faq" aria-label="FAQ">
+            <div class="faq__inner">
+                <div class="faq__header">
+                    <span class="eyebrow">04 — Questions</span>
+                    <h2 class="faq__title">FAQ</h2>
+                </div>
+                <dl class="faq__list">
+                    <div class="faq__item">
+                        <dt><button class="faq__q" aria-expanded="false"><span>When are tokens distributed?</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></button></dt>
+                        <dd class="faq__a"><p>Within 2 weeks after presale ends. 30-day cliff, then linear vesting over 6 months.</p></dd>
+                    </div>
+                    <div class="faq__item">
+                        <dt><button class="faq__q" aria-expanded="false"><span>Which blockchain?</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></button></dt>
+                        <dd class="faq__a"><p>ERC-20 on Ethereum. Bridged to Solana, Avalanche, Polygon. More chains in Phase 3.</p></dd>
+                    </div>
+                    <div class="faq__item">
+                        <dt><button class="faq__q" aria-expanded="false"><span>Audited?</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></button></dt>
+                        <dd class="faq__a"><p>Four independent audits. Trail of Bits, OpenZeppelin, Consensys Diligence, Cyfrin.</p></dd>
+                    </div>
+                    <div class="faq__item">
+                        <dt><button class="faq__q" aria-expanded="false"><span>How to participate?</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></button></dt>
+                        <dd class="faq__a"><p>Connect MetaMask, WalletConnect, or Coinbase. Enter amount, confirm. No KYC under $10K.</p></dd>
                     </div>
                 </dl>
             </div>
-            <aside class="hero__visual" aria-hidden="true">
-                <div class="orb">
-                    <div class="orb__ring orb__ring--1"></div>
-                    <div class="orb__ring orb__ring--2"></div>
-                    <div class="orb__core">M</div>
-                </div>
-            </aside>
         </section>
 
-        <section class="split" id="what" aria-label="About mimo">
-            <div class="split__left">
-                <span class="tag">Protocol</span>
-                <h2 class="split__heading">Cross-chain yield, zero bridges.</h2>
-            </div>
-            <div class="split__right">
-                <p class="split__text">mimo uses a novel intent-based architecture. You deposit on any chain. Our solver network finds the best yield opportunity across all supported networks and routes capital there — atomically, in a single transaction.</p>
-                <p class="split__text">No wrapped tokens. No bridge risk. Just yield.</p>
-            </div>
-        </section>
-
-        <section class="bento" id="numbers" aria-label="Key numbers">
-            <div class="bento__header">
-                <span class="tag">Numbers</span>
-                <h2 class="bento__title">Built different.</h2>
-            </div>
-            <div class="bento__grid">
-                <article class="bento__card bento__card--wide">
-                    <span class="bento__stat">12</span>
-                    <h3 class="bento__card-title">Supported chains</h3>
-                    <p class="bento__card-body">Ethereum, Solana, Avalanche, Arbitrum, Base, Polygon, Optimism, BNB, Fantom, zkSync, Linea, Scroll.</p>
-                </article>
-                <article class="bento__card">
-                    <span class="bento__stat">18.4%</span>
-                    <h3 class="bento__card-title">Avg. APY</h3>
-                    <p class="bento__card-body">Blended yield across lending, LP provision, and restaking strategies.</p>
-                </article>
-                <article class="bento__card">
-                    <span class="bento__stat">$0</span>
-                    <h3 class="bento__card-title">Bridge fees</h3>
-                    <p class="bento__card-body">Capital moves through intent settlement, not traditional bridges.</p>
-                </article>
-                <article class="bento__card bento__card--accent">
-                    <span class="bento__stat">2.1s</span>
-                    <h3 class="bento__card-title">Avg. settlement</h3>
-                    <p class="bento__card-body">From deposit to yield-bearing position. Most protocols take minutes.</p>
-                </article>
-                <article class="bento__card bento__card--tall">
-                    <span class="bento__stat">4</span>
-                    <h3 class="bento__card-title">Audits passed</h3>
-                    <p class="bento__card-body">Trail of Bits, OpenZeppelin, Consensys Diligence, Cyfrin. All reports public.</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="process" id="how" aria-label="How it works">
-            <div class="process__header">
-                <span class="tag">Process</span>
-                <h2 class="process__title">Three steps. Zero friction.</h2>
-            </div>
-            <ol class="process__steps">
-                <li class="process__step">
-                    <span class="process__num">01</span>
-                    <h3>Deposit on any chain</h3>
-                    <p>Connect your wallet. Pick a chain. Enter an amount. One click.</p>
-                </li>
-                <li class="process__step">
-                    <span class="process__num">02</span>
-                    <h3>mimo routes capital</h3>
-                    <p>Our solver network scans all supported chains and finds the optimal yield opportunity.</p>
-                </li>
-                <li class="process__step">
-                    <span class="process__num">03</span>
-                    <h3>Earn yield, claim anytime</h3>
-                    <p>Your position earns yield. Withdraw to any chain, not just the one you deposited on.</p>
-                </li>
-            </ol>
-        </section>
-
-        <section class="presale" id="presale" aria-label="Token presale">
-            <div class="presale__card">
-                <div class="presale__head">
-                    <span class="presale__live">Live now</span>
-                    <h2 class="presale__title">Get <span class="gold">MIMO</span> tokens early.</h2>
-                    <p class="presale__subtitle">Stage 2 of 5. Early participants get the best price before CEX listing.</p>
+        <!-- ============================================================
+             FOOTER
+             ============================================================ -->
+        <footer class="footer" role="contentinfo">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <a href="index.html" class="nav__logo" aria-label="mimo home">
+                        <span class="nav__mark">◈</span>
+                        <span class="nav__name">mimo</span>
+                    </a>
+                    <p class="footer__tagline">Yield without borders.</p>
                 </div>
-                <div class="presale__grid">
-                    <div class="presale__info">
-                        <div class="presale__row">
-                            <span class="presale__label">Current price</span>
-                            <span class="presale__value">$0.008</span>
-                        </div>
-                        <div class="presale__row">
-                            <span class="presale__label">Target listing</span>
-                            <span class="presale__value">$0.025</span>
-                        </div>
-                        <div class="presale__row">
-                            <span class="presale__label">Potential ROI</span>
-                            <span class="presale__value presale__value--green">3.1×</span>
-                        </div>
-                        <div class="presale__progress">
-                            <div class="presale__progress-head">
-                                <span>Stage 2 progress</span>
-                                <span class="presale__progress-pct">68%</span>
-                            </div>
-                            <div class="presale__bar">
-                                <div class="presale__bar-fill" style="width:68%"></div>
-                            </div>
-                            <div class="presale__progress-foot">
-                                <span>$1,632,000 raised</span>
-                                <span>Goal $2,400,000</span>
-                            </div>
-                        </div>
-                    </div>
-                    <form class="presale__form" aria-label="Investment calculator">
-                        <div class="field">
-                            <label for="invest" class="field__label">You invest (USD)</label>
-                            <div class="field__input">
-                                <span class="field__prefix">$</span>
-                                <input type="number" id="invest" min="50" value="100" step="10">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label for="receive" class="field__label">You receive (MIMO)</label>
-                            <div class="field__input">
-                                <span class="field__prefix">◈</span>
-                                <input type="text" id="receive" readonly value="12,500">
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn--primary btn--full" id="investBtn">Connect wallet to invest</button>
-                        <p class="presale__note">Min $50 · Tokens vest linearly over 6 months</p>
-                    </form>
+                <nav class="footer__col" aria-label="Protocol">
+                    <h4>Protocol</h4>
+                    <a href="docs.html">Docs</a>
+                    <a href="whitepaper.html">Whitepaper</a>
+                    <a href="token.html">Token</a>
+                </nav>
+                <nav class="footer__col" aria-label="Community">
+                    <h4>Community</h4>
+                    <a href="#">Discord</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">Twitter</a>
+                </nav>
+                <nav class="footer__col" aria-label="More">
+                    <h4>More</h4>
+                    <a href="about.html">About</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="#">GitHub</a>
+                </nav>
+            </div>
+            <div class="footer__bottom">
+                <span>© 2026 mimo protocol</span>
+                <div class="footer__legal">
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
                 </div>
             </div>
-        </section>
-
-        <section class="faq" id="faq" aria-label="Frequently asked questions">
-            <div class="faq__header">
-                <span class="tag">Questions</span>
-                <h2 class="faq__title">FAQ</h2>
-            </div>
-            <dl class="faq__list">
-                <div class="faq__item">
-                    <dt>
-                        <button class="faq__q" aria-expanded="false">
-                            <span>When are MIMO tokens distributed?</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                    </dt>
-                    <dd class="faq__a">
-                        <p>Within 2 weeks after presale ends. Non-transferable for 30 days (cliff), then linear vesting over 6 months.</p>
-                    </dd>
-                </div>
-                <div class="faq__item">
-                    <dt>
-                        <button class="faq__q" aria-expanded="false">
-                            <span>Which blockchain is MIMO on?</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                    </dt>
-                    <dd class="faq__a">
-                        <p>ERC-20 on Ethereum with native bridging to Solana, Avalanche, and Polygon. More chains added in Phase 3.</p>
-                    </dd>
-                </div>
-                <div class="faq__item">
-                    <dt>
-                        <button class="faq__q" aria-expanded="false">
-                            <span>Is the contract audited?</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                    </dt>
-                    <dd class="faq__a">
-                        <p>Yes — four independent audits. Trail of Bits, OpenZeppelin, Consensys Diligence, and Cyfrin. Reports are on our docs portal.</p>
-                    </dd>
-                </div>
-                <div class="faq__item">
-                    <dt>
-                        <button class="faq__q" aria-expanded="false">
-                            <span>What is the vesting schedule?</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                    </dt>
-                    <dd class="faq__a">
-                        <p>Presale: 30-day cliff + 6-month linear. Team: 12-month cliff + 4-year linear. Full details in the whitepaper.</p>
-                    </dd>
-                </div>
-                <div class="faq__item">
-                    <dt>
-                        <button class="faq__q" aria-expanded="false">
-                            <span>How do I participate?</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-                        </button>
-                    </dt>
-                    <dd class="faq__a">
-                        <p>Connect MetaMask, WalletConnect, or Coinbase Wallet. Enter an amount and confirm. No KYC under $10K.</p>
-                    </dd>
-                </div>
-            </dl>
-        </section>
+        </footer>
     </main>
-
-    <footer class="footer" role="contentinfo">
-        <div class="footer__inner">
-            <div class="footer__brand">
-                <a href="#" class="nav__logo" aria-label="mimo home">
-                    <span class="nav__mark">◈</span>
-                    <span class="nav__name">mimo</span>
-                </a>
-                <p class="footer__tagline">Decentralized yield, simplified.</p>
-            </div>
-            <nav class="footer__col" aria-label="Protocol">
-                <h4>Protocol</h4>
-                <a href="#">Documentation</a>
-                <a href="#">Whitepaper</a>
-                <a href="#">Audit reports</a>
-                <a href="#">GitHub</a>
-            </nav>
-            <nav class="footer__col" aria-label="Community">
-                <h4>Community</h4>
-                <a href="#">Discord</a>
-                <a href="#">Telegram</a>
-                <a href="#">Twitter</a>
-                <a href="#">Blog</a>
-            </nav>
-            <nav class="footer__col" aria-label="Legal">
-                <h4>Legal</h4>
-                <a href="#">Terms</a>
-                <a href="#">Privacy</a>
-                <a href="#">Disclaimer</a>
-            </nav>
-        </div>
-        <div class="footer__bottom">
-            <span>© 2026 mimo protocol</span>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
     <script src="wallet.js"></script>
