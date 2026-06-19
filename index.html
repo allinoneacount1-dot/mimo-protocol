@@ -3,466 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS Token | The Future of Decentralized Finance</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>mimo — Decentralized Yield Protocol</title>
+    <meta name="description" content="mimo is a decentralized yield optimization protocol. Earn native yield across chains without bridging.">
+    <meta property="og:title" content="mimo — Decentralized Yield Protocol">
+    <meta property="og:description" content="Earn native yield across chains without bridging.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">
-                <div class="logo-icon">◆</div>
-                <span>NEXUS</span>
+    <nav class="nav" aria-label="Main navigation">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo" aria-label="mimo home">
+                <span class="nav__mark">◈</span>
+                <span class="nav__name">mimo</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#tokenomics">Tokenomics</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#team">Team</a></li>
+            <ul class="nav__links">
+                <li><a href="#what">What</a></li>
+                <li><a href="#numbers">Numbers</a></li>
+                <li><a href="#how">How</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
-            <a href="#presale" class="btn btn-primary nav-cta">Join Presale</a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
+            <a href="#presale" class="nav__cta">Get early access</a>
+            <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
             </button>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-bg">
-            <div class="grid-overlay"></div>
-            <div class="glow glow-1"></div>
-            <div class="glow glow-2"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="badge">
-                    <span class="badge-dot"></span>
-                    Presale Live — Stage 2 of 5
+    <main>
+        <section class="hero" aria-label="Introduction">
+            <div class="hero__grain"></div>
+            <div class="hero__content">
+                <p class="hero__eyebrow">Token launch — live now</p>
+                <h1 class="hero__title">Yield that<br>works while<br>you don't.</h1>
+                <p class="hero__body">mimo routes your capital across 12 chains to capture the highest available yield — automatically, privately, without bridges.</p>
+                <div class="hero__actions">
+                    <a href="#presale" class="btn btn--primary">Join the presale</a>
+                    <a href="#what" class="btn btn--outline">Read the docs</a>
                 </div>
-                <h1>The Next Generation<br><span class="gradient-text">DeFi Protocol</span></h1>
-                <p class="hero-subtitle">Nexus redefines decentralized finance with cross-chain liquidity, zero-knowledge privacy, and institutional-grade security. Built for the future of finance.</p>
-                <div class="hero-cta">
-                    <a href="#presale" class="btn btn-primary btn-large">
-                        <span>Join Presale</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-                    <a href="#about" class="btn btn-ghost btn-large">Learn More</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-value" data-target="2400000">$0</span>
-                        <span class="stat-label">Raised So Far</span>
+                <dl class="hero__metrics">
+                    <div class="metric">
+                        <dt class="metric__value" data-count="2400000" data-prefix="$">$0</dt>
+                        <dd class="metric__label">raised in presale</dd>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <span class="stat-value" data-target="12500">0</span>
-                        <span class="stat-label">Early Investors</span>
+                    <div class="metric">
+                        <dt class="metric__value" data-count="12500">0</dt>
+                        <dd class="metric__label">early participants</dd>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <span class="stat-value">0.008</span>
-                        <span class="stat-label">Current Price (USD)</span>
+                    <div class="metric">
+                        <dt class="metric__value">0.008</dt>
+                        <dd class="metric__label">current price USD</dd>
                     </div>
-                </div>
+                </dl>
             </div>
-            <div class="hero-visual">
-                <div class="token-card">
-                    <div class="token-ring ring-1"></div>
-                    <div class="token-ring ring-2"></div>
-                    <div class="token-ring ring-3"></div>
-                    <div class="token-core">
-                        <span class="token-symbol">NXS</span>
-                    </div>
+            <aside class="hero__visual" aria-hidden="true">
+                <div class="orb">
+                    <div class="orb__ring orb__ring--1"></div>
+                    <div class="orb__ring orb__ring--2"></div>
+                    <div class="orb__core">M</div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </aside>
+        </section>
 
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">About Nexus</span>
-                <h2>Built for <span class="gradient-text">Scale</span>, Designed for <span class="gradient-text">Privacy</span></h2>
-                <p>Nexus Protocol is a next-generation DeFi infrastructure that combines cross-chain interoperability with zero-knowledge proofs to deliver secure, private, and scalable financial primitives.</p>
+        <section class="split" id="what" aria-label="About mimo">
+            <div class="split__left">
+                <span class="tag">Protocol</span>
+                <h2 class="split__heading">Cross-chain yield, zero bridges.</h2>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <h3>Cross-Chain Native</h3>
-                    <p>Seamless liquidity across Ethereum, Solana, Avalanche, and 20+ chains with unified bridge architecture.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                    </div>
-                    <h3>ZK-Privacy Layer</h3>
-                    <p>Private transactions and shielded pools powered by zero-knowledge cryptography without compromising auditability.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    </div>
-                    <h3>Instant Settlement</h3>
-                    <p>Sub-second finality with optimistic ZK-rollup architecture. Trade, lend, and borrow in real-time.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3>Institutional Security</h3>
-                    <p>Multi-sig governance, timelock contracts, and formal verification. Audited by Trail of Bits and OpenZeppelin.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                    </div>
-                    <h3>Yield Optimization</h3>
-                    <p>AI-driven yield strategies that auto-compound across protocols. Maximize returns with minimal gas.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-                    </div>
-                    <h3>DAO Governance</h3>
-                    <p>Fully decentralized governance with quadratic voting. Token holders shape the protocol's future.</p>
-                </div>
+            <div class="split__right">
+                <p class="split__text">mimo uses a novel intent-based architecture. You deposit on any chain. Our solver network finds the best yield opportunity across all supported networks and routes capital there — atomically, in a single transaction.</p>
+                <p class="split__text">No wrapped tokens. No bridge risk. Just yield.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="tokenomics" id="tokenomics">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Tokenomics</span>
-                <h2>Token <span class="gradient-text">Distribution</span></h2>
-                <p>Fixed supply of 1 billion NXS tokens with transparent vesting schedules and community-first allocation.</p>
+        <section class="bento" id="numbers" aria-label="Key numbers">
+            <div class="bento__header">
+                <span class="tag">Numbers</span>
+                <h2 class="bento__title">Built different.</h2>
             </div>
-            <div class="tokenomics-content">
-                <div class="chart-container">
-                    <canvas id="donutChart"></canvas>
-                    <div class="chart-center">
-                        <span class="chart-total">1B</span>
-                        <span class="chart-label">Total Supply</span>
-                    </div>
-                </div>
-                <div class="tokenomics-details">
-                    <div class="token-item">
-                        <div class="token-color" style="background: #6366f1;"></div>
-                        <div class="token-info">
-                            <div class="token-name">Public Sale</div>
-                            <div class="token-pct">30%</div>
-                        </div>
-                        <div class="token-amount">300M NXS</div>
-                    </div>
-                    <div class="token-item">
-                        <div class="token-color" style="background: #8b5cf6;"></div>
-                        <div class="token-info">
-                            <div class="token-name">Team & Advisors</div>
-                            <div class="token-pct">15%</div>
-                        </div>
-                        <div class="token-amount">150M NXS</div>
-                    </div>
-                    <div class="token-item">
-                        <div class="token-color" style="background: #a78bfa;"></div>
-                        <div class="token-info">
-                            <div class="token-name">Ecosystem Fund</div>
-                            <div class="token-pct">25%</div>
-                        </div>
-                        <div class="token-amount">250M NXS</div>
-                    </div>
-                    <div class="token-item">
-                        <div class="token-color" style="background: #c4b5fd;"></div>
-                        <div class="token-info">
-                            <div class="token-name">Liquidity</div>
-                            <div class="token-pct">15%</div>
-                        </div>
-                        <div class="token-amount">150M NXS</div>
-                    </div>
-                    <div class="token-item">
-                        <div class="token-color" style="background: #4f46e5;"></div>
-                        <div class="token-info">
-                            <div class="token-name">Private Sale</div>
-                            <div class="token-pct">10%</div>
-                        </div>
-                        <div class="token-amount">100M NXS</div>
-                    </div>
-                    <div class="token-item">
-                        <div class="token-color" style="background: #3730a3;"></div>
-                        <div class="token-info">
-                            <div class="token-name">Staking Rewards</div>
-                            <div class="token-pct">5%</div>
-                        </div>
-                        <div class="token-amount">50M NXS</div>
-                    </div>
-                </div>
+            <div class="bento__grid">
+                <article class="bento__card bento__card--wide">
+                    <span class="bento__stat">12</span>
+                    <h3 class="bento__card-title">Supported chains</h3>
+                    <p class="bento__card-body">Ethereum, Solana, Avalanche, Arbitrum, Base, Polygon, Optimism, BNB, Fantom, zkSync, Linea, Scroll.</p>
+                </article>
+                <article class="bento__card">
+                    <span class="bento__stat">18.4%</span>
+                    <h3 class="bento__card-title">Avg. APY</h3>
+                    <p class="bento__card-body">Blended yield across lending, LP provision, and restaking strategies.</p>
+                </article>
+                <article class="bento__card">
+                    <span class="bento__stat">$0</span>
+                    <h3 class="bento__card-title">Bridge fees</h3>
+                    <p class="bento__card-body">Capital moves through intent settlement, not traditional bridges.</p>
+                </article>
+                <article class="bento__card bento__card--accent">
+                    <span class="bento__stat">2.1s</span>
+                    <h3 class="bento__card-title">Avg. settlement</h3>
+                    <p class="bento__card-body">From deposit to yield-bearing position. Most protocols take minutes.</p>
+                </article>
+                <article class="bento__card bento__card--tall">
+                    <span class="bento__stat">4</span>
+                    <h3 class="bento__card-title">Audits passed</h3>
+                    <p class="bento__card-body">Trail of Bits, OpenZeppelin, Consensys Diligence, Cyfrin. All reports public.</p>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="roadmap" id="roadmap">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Roadmap</span>
-                <h2>Our <span class="gradient-text">Journey</span></h2>
-                <p>A strategic roadmap designed for sustainable growth and continuous innovation.</p>
+        <section class="process" id="how" aria-label="How it works">
+            <div class="process__header">
+                <span class="tag">Process</span>
+                <h2 class="process__title">Three steps. Zero friction.</h2>
             </div>
-            <div class="roadmap-timeline">
-                <div class="timeline-line"></div>
-                <div class="roadmap-item completed">
-                    <div class="roadmap-marker"></div>
-                    <div class="roadmap-content">
-                        <span class="roadmap-phase">Phase 1</span>
-                        <h3>Foundation</h3>
-                        <span class="roadmap-date">Q1 2026</span>
-                        <ul>
-                            <li>Protocol architecture design</li>
-                            <li>Smart contract development</li>
-                            <li>Seed funding ($1.2M)</li>
-                            <li>Security audit by Trail of Bits</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="roadmap-item active">
-                    <div class="roadmap-marker"></div>
-                    <div class="roadmap-content">
-                        <span class="roadmap-phase">Phase 2</span>
-                        <h3>Token Launch</h3>
-                        <span class="roadmap-date">Q2 2026</span>
-                        <ul>
-                            <li>Public presale</li>
-                            <li>DEX listing (Uniswap, Raydium)</li>
-                            <li>CoinGecko & CoinMarketCap listing</li>
-                            <li>Community growth to 50K members</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-marker"></div>
-                    <div class="roadmap-content">
-                        <span class="roadmap-phase">Phase 3</span>
-                        <h3>Mainnet Launch</h3>
-                        <span class="roadmap-date">Q3 2026</span>
-                        <ul>
-                            <li>Mainnet deployment</li>
-                            <li>Cross-chain bridge live</li>
-                            <li>Yield optimization engine</li>
-                            <li>Mobile app beta</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-marker"></div>
-                    <div class="roadmap-content">
-                        <span class="roadmap-phase">Phase 4</span>
-                        <h3>Ecosystem Expansion</h3>
-                        <span class="roadmap-date">Q4 2026</span>
-                        <ul>
-                            <li>DAO governance launch</li>
-                            <li>Institutional partnerships</li>
-                            <li>CEX listings (Tier 1)</li>
-                            <li>$1B TVL target</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <ol class="process__steps">
+                <li class="process__step">
+                    <span class="process__num">01</span>
+                    <h3>Deposit on any chain</h3>
+                    <p>Connect your wallet. Pick a chain. Enter an amount. One click.</p>
+                </li>
+                <li class="process__step">
+                    <span class="process__num">02</span>
+                    <h3>mimo routes capital</h3>
+                    <p>Our solver network scans all supported chains and finds the optimal yield opportunity.</p>
+                </li>
+                <li class="process__step">
+                    <span class="process__num">03</span>
+                    <h3>Earn yield, claim anytime</h3>
+                    <p>Your position earns yield. Withdraw to any chain, not just the one you deposited on.</p>
+                </li>
+            </ol>
+        </section>
 
-    <section class="team" id="team">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Team</span>
-                <h2>Built by <span class="gradient-text">Industry Veterans</span></h2>
-                <p>Our team combines decades of experience from top tech companies and leading DeFi protocols.</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar">AK</div>
-                    <h4>Alex Kowalski</h4>
-                    <span class="team-role">CEO & Co-Founder</span>
-                    <p>Ex-Circle, Stanford CS. 12 years in fintech and blockchain.</p>
+        <section class="presale" id="presale" aria-label="Token presale">
+            <div class="presale__card">
+                <div class="presale__head">
+                    <span class="presale__live">Live now</span>
+                    <h2 class="presale__title">Get <span class="gold">MIMO</span> tokens early.</h2>
+                    <p class="presale__subtitle">Stage 2 of 5. Early participants get the best price before CEX listing.</p>
                 </div>
-                <div class="team-card">
-                    <div class="team-avatar">SL</div>
-                    <h4>Sarah Lin</h4>
-                    <span class="team-role">CTO & Co-Founder</span>
-                    <p>Ex-Ethereum Foundation. ZK cryptography researcher.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">MR</div>
-                    <h4>Marcus Reid</h4>
-                    <span class="team-role">Head of DeFi</span>
-                    <p>Ex-Aave, MakerDAO. Built $5B+ in TVL products.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar">EP</div>
-                    <h4>Elena Petrov</h4>
-                    <span class="team-role">Head of Security</span>
-                    <p>Ex-Trail of Bits. Smart contract auditor, 200+ audits.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="presale" id="presale">
-        <div class="container">
-            <div class="presale-card">
-                <div class="presale-badge">Live Now</div>
-                <h2>Join the <span class="gradient-text">Presale</span></h2>
-                <p>Get early access to NXS tokens at the lowest price. Limited allocation for Stage 2.</p>
-                <div class="presale-info">
-                    <div class="presale-detail">
-                        <span class="detail-label">Current Price</span>
-                        <span class="detail-value">$0.008</span>
-                    </div>
-                    <div class="presale-detail">
-                        <span class="detail-label">Listing Price</span>
-                        <span class="detail-value">$0.025</span>
-                    </div>
-                    <div class="presale-detail">
-                        <span class="detail-label">Potential ROI</span>
-                        <span class="detail-value roi">3.1x</span>
-                    </div>
-                </div>
-                <div class="progress-section">
-                    <div class="progress-header">
-                        <span>Stage 2 Progress</span>
-                        <span class="progress-pct">68%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 68%;"></div>
-                    </div>
-                    <div class="progress-footer">
-                        <span>$1,632,000 raised</span>
-                        <span>Goal: $2,400,000</span>
-                    </div>
-                </div>
-                <div class="presale-form">
-                    <div class="input-group">
-                        <label>Investment Amount (USD)</label>
-                        <div class="input-wrapper">
-                            <span class="input-prefix">$</span>
-                            <input type="number" id="investAmount" placeholder="100" min="50" value="100">
+                <div class="presale__grid">
+                    <div class="presale__info">
+                        <div class="presale__row">
+                            <span class="presale__label">Current price</span>
+                            <span class="presale__value">$0.008</span>
+                        </div>
+                        <div class="presale__row">
+                            <span class="presale__label">Target listing</span>
+                            <span class="presale__value">$0.025</span>
+                        </div>
+                        <div class="presale__row">
+                            <span class="presale__label">Potential ROI</span>
+                            <span class="presale__value presale__value--green">3.1×</span>
+                        </div>
+                        <div class="presale__progress">
+                            <div class="presale__progress-head">
+                                <span>Stage 2 progress</span>
+                                <span class="presale__progress-pct">68%</span>
+                            </div>
+                            <div class="presale__bar">
+                                <div class="presale__bar-fill" style="width:68%"></div>
+                            </div>
+                            <div class="presale__progress-foot">
+                                <span>$1,632,000 raised</span>
+                                <span>Goal $2,400,000</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="input-group">
-                        <label>You Receive (NXS)</label>
-                        <div class="input-wrapper">
-                            <span class="input-prefix">◆</span>
-                            <input type="text" id="receiveAmount" readonly value="12,500">
+                    <form class="presale__form" aria-label="Investment calculator">
+                        <div class="field">
+                            <label for="invest" class="field__label">You invest (USD)</label>
+                            <div class="field__input">
+                                <span class="field__prefix">$</span>
+                                <input type="number" id="invest" min="50" value="100" step="10">
+                            </div>
                         </div>
-                    </div>
-                    <button class="btn btn-primary btn-large btn-full">
-                        Connect Wallet & Invest
-                    </button>
-                    <p class="form-note">Minimum investment: $50 · Tokens vest over 6 months</p>
+                        <div class="field">
+                            <label for="receive" class="field__label">You receive (MIMO)</label>
+                            <div class="field__input">
+                                <span class="field__prefix">◈</span>
+                                <input type="text" id="receive" readonly value="12,500">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn--primary btn--full">Connect wallet &amp; invest</button>
+                        <p class="presale__note">Min $50 · Tokens vest linearly over 6 months</p>
+                    </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="faq">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">FAQ</span>
-                <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+        <section class="faq" id="faq" aria-label="Frequently asked questions">
+            <div class="faq__header">
+                <span class="tag">Questions</span>
+                <h2 class="faq__title">FAQ</h2>
             </div>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>When will NXS tokens be distributed?</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Tokens will be distributed within 2 weeks after the presale ends. Initial allocation is non-transferable until the vesting cliff (30 days) to protect early investors.</p>
-                    </div>
+            <dl class="faq__list">
+                <div class="faq__item">
+                    <dt>
+                        <button class="faq__q" aria-expanded="false">
+                            <span>When are MIMO tokens distributed?</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                    </dt>
+                    <dd class="faq__a">
+                        <p>Within 2 weeks after presale ends. Non-transferable for 30 days (cliff), then linear vesting over 6 months.</p>
+                    </dd>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What blockchain is NXS built on?</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>NXS is deployed as an ERC-20 token on Ethereum with native bridging to Solana, Avalanche, and Polygon. Cross-chain support expands to additional networks in Phase 3.</p>
-                    </div>
+                <div class="faq__item">
+                    <dt>
+                        <button class="faq__q" aria-expanded="false">
+                            <span>Which blockchain is MIMO on?</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                    </dt>
+                    <dd class="faq__a">
+                        <p>ERC-20 on Ethereum with native bridging to Solana, Avalanche, and Polygon. More chains added in Phase 3.</p>
+                    </dd>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Is the contract audited?</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes. All smart contracts have been audited by Trail of Bits and OpenZeppelin. Audit reports are publicly available on our documentation portal.</p>
-                    </div>
+                <div class="faq__item">
+                    <dt>
+                        <button class="faq__q" aria-expanded="false">
+                            <span>Is the contract audited?</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                    </dt>
+                    <dd class="faq__a">
+                        <p>Yes — four independent audits. Trail of Bits, OpenZeppelin, Consensys Diligence, and Cyfrin. Reports are on our docs portal.</p>
+                    </dd>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What is the vesting schedule?</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Presale tokens have a 30-day cliff followed by linear vesting over 6 months. Team tokens vest over 4 years with a 12-month cliff. Full details are in our whitepaper.</p>
-                    </div>
+                <div class="faq__item">
+                    <dt>
+                        <button class="faq__q" aria-expanded="false">
+                            <span>What is the vesting schedule?</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                    </dt>
+                    <dd class="faq__a">
+                        <p>Presale: 30-day cliff + 6-month linear. Team: 12-month cliff + 4-year linear. Full details in the whitepaper.</p>
+                    </dd>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>How do I participate in the presale?</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Connect your MetaMask, WalletConnect, or Coinbase Wallet. Enter your desired investment amount and confirm the transaction. KYC is not required for investments under $10,000.</p>
-                    </div>
+                <div class="faq__item">
+                    <dt>
+                        <button class="faq__q" aria-expanded="false">
+                            <span>How do I participate?</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                    </dt>
+                    <dd class="faq__a">
+                        <p>Connect MetaMask, WalletConnect, or Coinbase Wallet. Enter an amount and confirm. No KYC under $10K.</p>
+                    </dd>
                 </div>
-            </div>
-        </div>
-    </section>
+            </dl>
+        </section>
+    </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <div class="logo-icon">◆</div>
-                        <span>NEXUS</span>
-                    </a>
-                    <p>The next generation DeFi protocol for cross-chain liquidity and privacy.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-col">
-                        <h5>Protocol</h5>
-                        <a href="#">Documentation</a>
-                        <a href="#">Whitepaper</a>
-                        <a href="#">Audit Reports</a>
-                        <a href="#">GitHub</a>
-                    </div>
-                    <div class="footer-col">
-                        <h5>Community</h5>
-                        <a href="#">Discord</a>
-                        <a href="#">Telegram</a>
-                        <a href="#">Twitter</a>
-                        <a href="#">Medium</a>
-                    </div>
-                    <div class="footer-col">
-                        <h5>Resources</h5>
-                        <a href="#">Blog</a>
-                        <a href="#">Press Kit</a>
-                        <a href="#">Bug Bounty</a>
-                        <a href="#">Careers</a>
-                    </div>
-                </div>
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <a href="#" class="nav__logo" aria-label="mimo home">
+                    <span class="nav__mark">◈</span>
+                    <span class="nav__name">mimo</span>
+                </a>
+                <p class="footer__tagline">Decentralized yield, simplified.</p>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 Nexus Protocol. All rights reserved.</span>
-                <div class="footer-legal">
-                    <a href="#">Terms</a>
-                    <a href="#">Privacy</a>
-                    <a href="#">Disclaimer</a>
-                </div>
-            </div>
+            <nav class="footer__col" aria-label="Protocol">
+                <h4>Protocol</h4>
+                <a href="#">Documentation</a>
+                <a href="#">Whitepaper</a>
+                <a href="#">Audit reports</a>
+                <a href="#">GitHub</a>
+            </nav>
+            <nav class="footer__col" aria-label="Community">
+                <h4>Community</h4>
+                <a href="#">Discord</a>
+                <a href="#">Telegram</a>
+                <a href="#">Twitter</a>
+                <a href="#">Blog</a>
+            </nav>
+            <nav class="footer__col" aria-label="Legal">
+                <h4>Legal</h4>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Disclaimer</a>
+            </nav>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2026 mimo protocol</span>
         </div>
     </footer>
 
