@@ -1379,3 +1379,20 @@ button{font:inherit;cursor:pointer}
     .token-stats__inner{grid-template-columns:1fr 1fr}
     .process__steps{grid-template-columns:1fr}
 }
+
+/* ============================================================
+   GSAP Animation States
+   ============================================================ */
+[data-gsap]{will-change:transform,opacity}
+.gsap-fade{opacity:0}
+.gsap-slide-up{opacity:0;transform:translateY(40px)}
+.gsap-slide-left{opacity:0;transform:translateX(-40px)}
+.gsap-slide-right{opacity:0;transform:translateX(40px)}
+.gsap-scale{opacity:0;transform:scale(0.95)}
+
+/* Smooth will-change for animated elements */
+.bento__card,.process__step,.team-card,.blog-card,
+.token-stat,.token-row,.faq__item,.presale__card,
+.docs-section,.wp-section,.arch-card,.step,.code-block{
+    will-change:transform,opacity
+}

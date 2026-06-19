@@ -84,34 +84,6 @@
         });
     }
 
-    /* ---- Scroll Reveal (stagger, no transition:all) ---- */
-    const reveals = document.querySelectorAll(
-        '.bento__card, .process__step, .split__left, .split__right, .presale__card'
-    );
-    if (reveals.length) {
-        const rIo = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry, i) => {
-                    if (!entry.isIntersecting) return;
-                    const el = entry.target;
-                    const delay = Array.from(reveals).indexOf(el) % 4 * 80;
-                    setTimeout(() => {
-                        el.style.opacity = '1';
-                        el.style.transform = 'translateY(0)';
-                    }, delay);
-                    rIo.unobserve(el);
-                });
-            },
-            { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
-        );
-        reveals.forEach((el) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(18px)';
-            el.style.transition = 'opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1)';
-            rIo.observe(el);
-        });
-    }
-
     /* ---- Smooth Anchor ---- */
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
         a.addEventListener('click', (e) => {
