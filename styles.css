@@ -682,6 +682,99 @@ button{font:inherit;cursor:pointer}
     color:var(--fg-faint);
 }
 
+/* ============================================================
+   Wallet Connect
+   ============================================================ */
+.wallet-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 16px;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:var(--r-btn);
+    color:var(--fg);
+    font-family:var(--ff-display);
+    font-size:var(--fs-small);
+    font-weight:500;
+    cursor:pointer;
+    transition:border-color .2s var(--ease-out),background .2s var(--ease-out);
+}
+.wallet-btn:hover{border-color:var(--border-h);background:var(--bg-card-h)}
+.wallet-btn__dot{
+    width:8px;height:8px;
+    border-radius:50%;
+    background:var(--fg-faint);
+    transition:background .2s var(--ease-out);
+}
+.wallet-btn__dot--connected{background:var(--green)}
+.wallet-btn--connected{border-color:var(--green);background:rgba(125,186,106,.06)}
+
+/* Wallet Menu */
+.wallet-menu{
+    position:fixed;
+    z-index:200;
+    width:280px;
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:var(--r-box);
+    box-shadow:0 16px 48px rgba(0,0,0,.4);
+    overflow:hidden;
+    animation:menuIn .15s var(--ease-out);
+}
+@keyframes menuIn{
+    from{opacity:0;transform:translateY(-6px)}
+    to{opacity:1;transform:translateY(0)}
+}
+.wallet-menu__header{
+    padding:var(--sp-sm) var(--sp-md);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+}
+.wallet-menu__title{
+    font-family:var(--ff-display);
+    font-weight:600;
+    font-size:var(--fs-small);
+}
+.wallet-menu__addr{
+    font-family:var(--ff-mono);
+    font-size:var(--fs-small);
+    color:var(--fg);
+}
+.wallet-menu__chain{
+    font-size:.7rem;
+    color:var(--fg-faint);
+}
+.wallet-menu__item{
+    display:flex;
+    align-items:center;
+    gap:var(--sp-sm);
+    width:100%;
+    padding:var(--sp-sm) var(--sp-md);
+    background:none;
+    border:none;
+    color:var(--fg-muted);
+    font-size:var(--fs-small);
+    font-family:var(--ff-body);
+    text-align:left;
+    cursor:pointer;
+    transition:background .15s var(--ease-out),color .15s var(--ease-out);
+}
+.wallet-menu__item:hover{background:var(--bg-card-h);color:var(--fg)}
+.wallet-menu__item--danger{color:#dc2626}
+.wallet-menu__item--danger:hover{background:rgba(220,38,38,.08);color:#ef4444}
+.wallet-menu__provider{font-weight:500;color:var(--fg)}
+.wallet-menu__icon{font-size:1.1rem;width:24px;text-align:center}
+
+/* Invest button states */
+.btn:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+    transform:none;
+}
+
 /* --- Responsive --- */
 @media(max-width:1024px){
     .hero{
